@@ -1,0 +1,125 @@
+*,
+*::defore,
+*::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-family: "Roboto", sans-serif;
+  font-size: 10px;
+}
+
+body {
+  width: 100%;
+  height: 100vh;
+  background-color: #eee;
+  display: flex;
+}
+
+.contrainer {
+  width: 100%;
+  max-width: 120rem;
+  margin: auto;
+  padding: 0 0.5rem;
+}
+
+.image-gallery {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr;
+  grid-template-rows: auto;
+  grid-gap: 0.25rem;
+  grid-template-areas:
+    "imag-1 imag-3 imag-3 imag-3"
+    "imag-1 imag-2 imag-4 imag-4";
+}
+
+.image-gallery a {
+  width: 100%;
+  height: 25rem;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  background-size: cover;
+  align-items: center;
+  justify-content: center;
+}
+
+.image-gallery a i {
+  color: rgba(255, 255, 255, 0.6);
+  font-size: 3rem;
+  position: center;
+  z-index: 100;
+  padding: 1rem 3rem;
+  border: 2px solid rgba(255, 255, 255, 0.6);
+  border-radius: 0.4rem;
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.image-gallery a::before {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  top: 0;
+  left: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  opacity: 0;
+  transition: opacity 0.5s;
+}
+
+.image-gallery a:hover i,
+.image-gallery a:hover::before {
+  opacity: 1;
+}
+
+.imag-1 {
+  grid-area: imag-1;
+  min-height: 50.25rem;
+  background-image: url("https://cdn.pixabay.com/photo/2014/11/03/17/40/leopard-515509_960_720.jpg");
+}
+
+.imag-3 {
+  grid-area: imag-3;
+  background-image: url("https://cdn.pixabay.com/photo/2018/03/26/20/49/tiger-3264048_960_720.jpg");
+}
+
+.imag-2 {
+  grid-area: imag-2;
+  background-image: url("https://cdn.pixabay.com/photo/2017/05/17/12/42/tiger-2320819_960_720.jpg");
+}
+
+.imag-4 {
+  grid-area: imag-4;
+  background-image: url("https://cdn.pixabay.com/photo/2015/11/16/22/14/cat-1046544_960_720.jpg");
+}
+
+@media screen and (max-width:800px){
+  .image-gallery {
+    grid-template-areas:
+      "imag-1 imag-1 imag-2 imag-2"
+      "imag-3 imag-3 imag-4 imag-4";
+  }
+  .imag-1 {
+    grid-area: imag-1;
+    min-height: 25rem;
+    background-image: url("https://cdn.pixabay.com/photo/2014/11/03/17/40/leopard-515509_960_720.jpg");
+  }
+}
+
+@media screen and (max-width:500px){
+  .image-gallery {
+    grid-template-areas:
+      "imag-1 imag-1 imag-1 imag-1"
+      "imag-2 imag-2 imag-2 imag-2"
+      "imag-3 imag-3 imag-3 imag-3"
+      "imag-4 imag-4 imag-4 imag-4";
+  }
+  .imag-1 {
+    grid-area: imag-1;
+    min-height: 25rem;
+    background-image: url("https://cdn.pixabay.com/photo/2014/11/03/17/40/leopard-515509_960_720.jpg");
+  }
+}
